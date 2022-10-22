@@ -21,8 +21,8 @@ const Header = () => {
       variant="light"
     >
       <Container >
-        <Navbar.Brand >
-          {" "}
+        <Navbar.Brand className="fw-bolder" >
+          
           <Link to="/">Dragon News</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -36,12 +36,12 @@ const Header = () => {
             {
                                 user?.uid ?
                                     <>
-                                        <span>{user?.displayName}</span>
+                                        <span className="text-danger">{user?.displayName}</span>
                                         <Button onClick={logOut} className="border rounded ms-2" variant="outline-secondary">Log out  <HiOutlineLogout></HiOutlineLogout> </Button>
                                     </>
                                     :
                                     <>
-                                    <Button className="border rounded ms-1" variant="outline-secondary">  <Link to='/login'>Login</Link> </Button>
+                                    <Button className="border-0  ms-1" variant="outline-secondary">  <Link to='/login'>Login</Link> </Button>
                                     <Button className="border rounded ms-1" variant="outline-secondary">  <Link to='/register'>Register</Link> </Button>
                                        
                                         

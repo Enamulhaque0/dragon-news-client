@@ -18,25 +18,20 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import BrandCarousel from "../BrandCarousel/BrandCarousel";
 
 const RightSideNav = () => {
-  const { gitHubLogin, providerLogin,} =
-    useContext(AuthContext);
+  const { gitHubLogin, providerLogin } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
 
- 
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-      console.log(user);
 
-
-        navigate("/");
-
-       
-
-        toast.success("please register with Email And Password.. google coming soon ");
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };

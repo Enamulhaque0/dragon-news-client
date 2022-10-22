@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ListGroup from "react-bootstrap/ListGroup";
+import toast from "react-hot-toast";
 
 import {
   FaGoogle,
@@ -16,45 +17,38 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import BrandCarousel from "../BrandCarousel/BrandCarousel";
 
-
 const RightSideNav = () => {
-
-  const {gitHubLogin,providerLogin,setUser,setLoading}= useContext(AuthContext)
-  const googleProvider = new GoogleAuthProvider()
+  const { gitHubLogin, providerLogin,} =
+    useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
 
-  const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
-
+ 
 
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
-        .then(result => {
-            const user = result.user;
-            if(user){
-              navigate(from, {replace: true});
-              setUser(user);
-            setLoading(false);
-          }
-              
-           
-            
-           
-          
-            
-        })
-        .catch(error => console.error(error))
-       
-      //   .finally(() => {
-      //     setLoading(true);
-      // })
+      .then((result) => {
+        const user = result.user;
+      console.log(user);
 
-}
+
+        navigate("/");
+
+       
+
+        toast.success("please register with Email And Password.. google coming soon ");
+      })
+      .catch((error) => console.error(error));
+  };
 
   return (
     <div>
       <ButtonGroup vertical>
-        <Button onClick={handleGoogleSignIn} className="mb-2" variant="outline-primary">
+        <Button
+          onClick={handleGoogleSignIn}
+          className="mb-2"
+          variant="outline-primary"
+        >
           {" "}
           <FaGoogle></FaGoogle> Login with Google
         </Button>
@@ -78,7 +72,6 @@ const RightSideNav = () => {
           <ListGroup.Item className="mb-2">
             <FaTwitch /> Twitch
           </ListGroup.Item>
-          
         </ListGroup>
         <div>
           <BrandCarousel></BrandCarousel>

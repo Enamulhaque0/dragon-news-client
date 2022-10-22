@@ -18,7 +18,8 @@ const auth = getAuth(app);
 const gitHubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
+  console.log(user)
   const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
@@ -51,6 +52,7 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, profile);
   };
   const verifyEmail = () => {
+    
     return sendEmailVerification(auth.currentUser);
   };
   useEffect(() => {

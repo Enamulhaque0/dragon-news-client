@@ -30,14 +30,14 @@ const Header = () => {
           <Nav className="me-auto">
             
           </Nav>
-          <Nav className="d-flex justify-content-center align-items-center">
+          <Nav className="flex justify-content-center align-items-center">
             <>
             
             {
                                 user?.uid ?
                                     <>
-                                        <span className="text-danger">{user?.displayName}</span>
-                                        <Button onClick={logOut} className="border rounded ms-2" variant="outline-secondary">Log out  <HiOutlineLogout></HiOutlineLogout> </Button>
+                                        <span className="text-danger m-2">{user?.displayName}</span>
+                                        <Button  onClick={logOut} className="border ms-2 " variant="outline-secondary">Log out  <HiOutlineLogout></HiOutlineLogout> </Button>
                                     </>
                                     :
                                     <>
@@ -51,7 +51,7 @@ const Header = () => {
             </>
 
 
-            <Link className="ms-2" to="/profile" >
+            <Link className="m-2 " to="/profile" >
 
 
 

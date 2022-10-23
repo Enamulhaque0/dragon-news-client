@@ -25,6 +25,7 @@ const Login = () => {
         form.reset();
         if(user.emailVerified){
             navigate(from, {replace: true});
+            toast.success("login success")
         }
         else{
             toast.error('Your email is not verified. Please verify your email address.')
@@ -40,8 +41,8 @@ const Login = () => {
 }
   
   return (
-    <div>
-      <Form onSubmit={handleSubmit}>
+    <div className="mb-3">
+      <Form  onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control

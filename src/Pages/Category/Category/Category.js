@@ -9,7 +9,7 @@ const categoryNews = useLoaderData()
 
     return (
         <div>
-            <h2>This Is category{categoryNews.length}</h2>
+           
 
             {
                 categoryNews.map(news => <NewsSummaryCard key={news._id} news={news}>

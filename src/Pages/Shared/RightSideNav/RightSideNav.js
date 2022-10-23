@@ -30,7 +30,7 @@ const RightSideNav = () => {
     providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-
+        toast.success("login success")
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
@@ -56,13 +56,16 @@ const RightSideNav = () => {
         <h5>Find us on</h5>
         <ListGroup>
           <ListGroup.Item className="mb-2">
-            <FaFacebook /> Facebook
+            
+            <a href="http://facebook.com/inamahmed0" target="_blank" rel="noopener noreferrer"><FaFacebook /> Facebook</a>
           </ListGroup.Item>
           <ListGroup.Item className="mb-2">
-            <FaWhatsapp /> WhatsApp
+           
+            <a href="https://wa.me/qr/4NQDNGXBPRXSG1" target="_blank" rel="noopener noreferrer"> <FaWhatsapp /> WhatsApp</a>
           </ListGroup.Item>
           <ListGroup.Item className="mb-2">
-            <FaTwitter /> Twitter
+            
+            <a href="https://twitter.com/enamulhaque0" target="_blank" rel="noopener noreferrer"><FaTwitter /> Twitter</a>
           </ListGroup.Item>
           <ListGroup.Item className="mb-2">
             <FaTwitch /> Twitch
